@@ -55,7 +55,7 @@ def tune_model(
     train_path: Path | str = DEFAULT_TRAIN,
     eval_path: Path | str = DEFAULT_EVAL,
     model_output: Path | str = DEFAULT_OUT,
-    n_trials: int = 15,
+    n_trials: int = 3,
     sample_frac: Optional[float] = None,
     tracking_uri: Optional[str] = None,
     experiment_name: str = "xgboost_optuna_housing",
