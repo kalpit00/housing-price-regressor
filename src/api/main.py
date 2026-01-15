@@ -14,7 +14,7 @@ from src.inference_pipeline.inference import predict
 # Config
 # ----------------------------
 S3_BUCKET = os.getenv("S3_BUCKET", "housing-price-regressor")
-REGION = os.getenv("AWS_REGION", "eu-east-1")
+REGION = os.getenv("AWS_REGION", "us-east-1")
 s3 = boto3.client("s3", region_name=REGION)
 
 # Ensures your app always has the latest model/data locally, 

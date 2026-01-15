@@ -10,7 +10,7 @@ from pathlib import Path
 # ============================
 API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000/predict")
 S3_BUCKET = os.getenv("S3_BUCKET", "housing-price-regressor")
-REGION = os.getenv("AWS_REGION", "eu-east-1")
+REGION = os.getenv("AWS_REGION", "us-east-1")
 
 s3 = boto3.client("s3", region_name=REGION)
 

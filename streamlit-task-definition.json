@@ -1,0 +1,42 @@
+{
+  "family": "housing-streamlit-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::179363955835:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "housing-streamlit",
+      "image": "179363955835.dkr.ecr.us-east-1.amazonaws.com/housing-streamlit:latest",
+      "portMappings": [
+        {
+          "containerPort": 8501,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "API_URL",
+          "value": "http://housing-api-service:8000/predict"
+        },
+        {
+          "name": "S3_BUCKET",
+          "value": "housing-price-regressor"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-1"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/housing-streamlit",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
