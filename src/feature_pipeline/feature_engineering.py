@@ -117,7 +117,14 @@ def run_feature_engineering(
     # Drop leakage / raw categoricals
     train_df, eval_df = drop_unused_columns(train_df, eval_df)
     holdout_df, _ = drop_unused_columns(holdout_df.copy(), holdout_df.copy())
-
+    # Fill NaN values in lat/lng columns
+    for col in ["lat", "lng"]:
+        if col in train_df.columns:
+            train_df[col] = train_df[col].fillna(0)
+        if col in eval_df.columns:
+            eval_df[col] = eval_df[col].fillna(0)
+        if col in holdout_df.columns:
+            holdout_df[col] = holdout_df[col].fillna(0)
     # Save engineered data
     out_train_path = output_dir / "feature_engineered_train.csv"
     out_eval_path = output_dir / "feature_engineered_eval.csv"
