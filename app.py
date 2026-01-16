@@ -12,10 +12,10 @@ API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000/predict")
 S3_BUCKET = os.getenv("S3_BUCKET", "housing-price-regressor")
 REGION = os.getenv("AWS_REGION", "us-east-1")
 
-s3 = boto3.client("s3", region_name=REGION)
 
 def load_from_s3(key, local_path):
     """Download from S3 if not already cached locally."""
+    s3 = boto3.client("s3", region_name=REGION)
     local_path = Path(local_path)
     if not local_path.exists():
         os.makedirs(local_path.parent, exist_ok=True)
