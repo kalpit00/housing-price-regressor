@@ -1,6 +1,7 @@
 ## MLOPs Project using Regression on Time Series Data
 
 ## 🌟 Live Application
+PLEASE NOTE : I have PAUSED the AWS Containers to prevent being overcharged. If you are interested in testing this model, please contact me and I can restart the service
 
 - **🎯 Frontend Dashboard**: [http://housing-alb-1577325325.us-east-1.elb.amazonaws.com:8080/dashboard/](http://housing-alb-1577325325.us-east-1.elb.amazonaws.com:8080/dashboard/)
 - **🔧 Backend API**: [http://housing-alb-1577325325.us-east-1.elb.amazonaws.com/](http://housing-alb-1577325325.us-east-1.elb.amazonaws.com/)
